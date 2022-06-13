@@ -1,0 +1,73 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "dd0a3f9a-8ea8-4ef9-bb0f-06bddbc5099b"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "super-ui-lib": {
+      "projectType": "library",
+      "root": "projects/super-ui-lib",
+      "sourceRoot": "projects/super-ui-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/super-ui-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/super-ui-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/super-ui-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/super-ui-lib/src/test.ts",
+            "tsConfig": "projects/super-ui-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/super-ui-lib/karma.conf.js"
+          }
+        }
+      }
+    },
+    "additional-library": {
+      "projectType": "library",
+      "root": "projects/additional-library",
+      "sourceRoot": "projects/additional-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/additional-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/additional-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/additional-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/additional-library/src/test.ts",
+            "tsConfig": "projects/additional-library/tsconfig.spec.json",
+            "karmaConfig": "projects/additional-library/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "super-ui-lib"
+}
